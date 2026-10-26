@@ -1,0 +1,78 @@
+/* A single selection pill moves between the two views. */
+header{top:45px}
+.header-left{display:flex;align-items:center;gap:clamp(32px,5.5vw,80px)}
+.brand{font-size:14px;gap:0}
+.cv-link{position:relative;padding:4px 0;font-size:14px;font-weight:500;color:inherit;text-decoration:none}
+.cv-link::after{content:"";position:absolute;left:0;right:0;bottom:1px;height:1px;background:currentColor}
+.brand-orb{width:18px;height:18px}
+nav{font-size:14px;gap:clamp(32px,5.5vw,80px)}
+.nav-dot{display:block;width:9px;height:9px;flex:none;border-radius:50%;background:#000}
+.segments{width:194px;height:30px;border-radius:999px}
+#guide{font-size:12px;margin-top:14px}
+.view-controls{left:calc(50% - .2775vw)}
+.segments{position:relative;isolation:isolate}
+.segments::before{content:'';position:absolute;inset:2.188px auto 2.188px 2.188px;width:calc(50% - 2.188px);background:#fff;border-radius:999px;box-shadow:0 0 2.734px #0000001a,0 6.563px 6.563px #0000001a;transform:translateX(100%);transition:transform 380ms cubic-bezier(.22,.85,.24,1);pointer-events:none}
+.is-index .segments::before{transform:translateX(0)}
+.segments button{position:relative;z-index:1;font-size:13px;font-weight:400;border-radius:999px}
+.segments button[aria-pressed=true]{background:none;box-shadow:none;font-weight:600}
+
+/* Keep both views mounted so quick direction changes remain smooth. */
+#spatial-view{position:absolute;inset:0;opacity:1;visibility:visible;transition:opacity 320ms ease,visibility 0s}
+.is-index #spatial-view{opacity:0;visibility:hidden;pointer-events:none;transition:opacity 320ms ease,visibility 0s 320ms}
+.is-index #intro{display:block}
+#guide{transition:opacity 220ms ease,visibility 0s}
+.is-index #guide{opacity:0;transition:opacity 220ms ease,visibility 0s 220ms}
+#index-view{inset:120px 0 0;padding:15px 4.861111% 55px;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(12px);transition:opacity 320ms ease,transform 420ms cubic-bezier(.22,.85,.24,1),visibility 0s 420ms}
+.is-index #index-view{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);transition-delay:0s}
+#index-heading{font-size:24px;font-weight:500;line-height:29px;margin:0 0 33px}
+#index-grid{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:35px;row-gap:54px;align-items:start}
+#index-grid .index-card{display:block;width:100%;padding:0;text-align:left}
+#index-grid .project-thumbnail{display:block;width:100%;height:auto;aspect-ratio:720/460;object-fit:cover;background:#fff}
+#index-grid .project-meta{display:grid;grid-template-columns:minmax(0,1fr) 29px;gap:16px;margin-top:18px}
+#index-grid .project-copy{min-width:0}
+#index-grid .project-name{display:block;margin:0;font-size:20px;font-weight:400;line-height:29px}
+#index-grid .project-summary{display:block;color:#7b7b7b;font-size:16px;font-weight:300;line-height:23px}
+#index-grid .project-number{color:#7b7b7b;font-size:16px;font-weight:400;line-height:22px;text-align:right}
+#index-grid .index-card:focus-visible{outline-offset:7px}
+
+@media(max-width:1050px){
+  #index-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 28px}
+}
+@media(max-width:700px){
+  header{top:25px}
+  .header-left{gap:24px}
+  .brand{font-size:13px;gap:0}
+  .cv-link{font-size:13px}
+  .brand-orb{width:16px;height:16px}
+  nav{font-size:13px;gap:24px}
+  .nav-dot{width:8px;height:8px}
+  .segments{width:176px;height:30px}
+  .view-controls{left:50%}
+  #index-view{inset:140px 0 0;padding:20px 22px 32px}
+  #index-heading{font-size:22px;line-height:28px;margin-bottom:26px}
+  #index-grid{gap:36px 22px}
+  #index-grid .project-meta{gap:10px;margin-top:14px}
+  #index-grid .project-name{font-size:19px;line-height:26px}
+  #index-grid .project-summary{font-size:15px;line-height:21px}
+  #index-grid .project-number{font-size:15px;line-height:23px}
+}
+@media(max-width:560px){#index-grid{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){
+  .segments::before,#spatial-view,.is-index #spatial-view,#index-view,#guide,.is-index #guide{transition:none}
+  #index-view{transform:none}
+}
+
+nav button{position:relative}
+nav button::after{content:"";position:absolute;left:0;right:0;bottom:1px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 240ms ease}
+nav button:hover::after,nav button:focus-visible::after{transform:scaleX(1)}
+@media(prefers-reduced-motion:reduce){nav button::after{transition:none}}
+
+/* Extend the wordmark without shifting the centered navigation. */
+.brand{position:relative;white-space:nowrap}
+.brand-extension{position:absolute;left:100%;top:0;bottom:0;display:flex;align-items:center;gap:10px;padding-left:10px;pointer-events:none}
+.brand-line{width:32px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 280ms ease 80ms}
+.brand-family{opacity:0;transform:translateX(-5px);transition:opacity 140ms ease,transform 180ms ease}
+.brand:not(.brand-collapsed):is(:hover,:focus-visible) .brand-line{transform:scaleX(1);transition-delay:0ms}
+.brand:not(.brand-collapsed):is(:hover,:focus-visible) .brand-family{opacity:1;transform:translateX(0);transition-delay:220ms}
+@media(max-width:700px){.brand-line{width:18px}.brand-extension{gap:6px;padding-left:6px}}
+@media(prefers-reduced-motion:reduce){.brand-line,.brand-family{transition:none!important}}

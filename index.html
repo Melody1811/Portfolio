@@ -1,0 +1,37 @@
+<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="AYSA — Branding, Motion and Digital Products. A visual tour of past work."><title>AYSA — Portfolio</title><link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg"><link rel="stylesheet" href="style.css?v=project-navigation-1"><link rel="stylesheet" href="index.css?v=brand-motion-6"><link rel="stylesheet" href="info.css?v=keyword-contrast-2"><link rel="stylesheet" href="contact.css?v=6"><link rel="stylesheet" href="theme.css?v=touch-spacing-3"><script src="theme.js?v=3" defer></script><link rel="stylesheet" href="case-view.css?v=16">
+</head><body>
+<main id="experience" class="is-loading" aria-busy="true">
+
+<div id="spatial-view" aria-hidden="false">
+<div id="scene" aria-label="Interactive constellation of categorized projects"></div>
+<div id="intro"><h1>Designer of unique<br>brands and interfaces</h1><p>Hover over work to see related nodes</p></div>
+<div id="hover-label" class="project-caption" hidden></div>
+<div id="spatial-categories" aria-label="Project categories" aria-hidden="true"></div>
+</div>
+<header><div class="header-left"><a class="brand" href="./" aria-label="AYSA home"><span>AYSA</span></a><a class="cv-link" href="https://disk.yandex.ru/i/apQMa0fZ_D8cgg" target="_blank" rel="noopener noreferrer">CV</a></div><div class="view-controls"><div class="segments" role="group" aria-label="Режим просмотра портфолио"><button id="index-open" aria-pressed="false" aria-controls="index-view">Проекты</button><button id="spatial" aria-pressed="true" aria-controls="spatial-view">Галерея</button></div><p id="guide">Scroll up to enter and drag to rotate</p></div><nav aria-label="Основная навигация"><button id="info-open">Обо мне</button><button id="contact" aria-haspopup="dialog" aria-controls="contact-dialog">Контакты</button><button id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="nav-dot" aria-hidden="true"><svg class="theme-sun" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="2" r="1"/><circle cx="19.07" cy="4.93" r="1"/><circle cx="22" cy="12" r="1"/><circle cx="19.07" cy="19.07" r="1"/><circle cx="12" cy="22" r="1"/><circle cx="4.93" cy="19.07" r="1"/><circle cx="2" cy="12" r="1"/><circle cx="4.93" cy="4.93" r="1"/></svg></span></button></nav></header>
+<section id="project-detail" hidden aria-label="Selected project">
+<div id="project-artwork"></div>
+<aside id="project"><button id="close-project" aria-label="Close project details">×</button><h2 id="project-title"></h2><p id="project-description"></p></aside>
+</section>
+<div id="project-navigation" role="group" aria-label="Project navigation" hidden><button id="project-return" type="button">Return</button><span aria-hidden="true">|</span><button id="project-next" type="button">Next</button></div>
+<section id="index-view" aria-labelledby="index-heading" aria-hidden="true" inert><h2 id="index-heading">Избранные работы</h2><div id="index-grid"></div></section>
+<div id="error" hidden role="alert">The 3D view couldn’t load. You can still explore all projects in Index.</div><div id="loading" role="status" aria-label="world building"><span aria-hidden="true"><span class="loading-word">world</span> <span class="loading-word">building</span></span></div>
+</main>
+<dialog id="info" aria-labelledby="info-heading">
+<div class="info-top"><button id="info-close" aria-label="Закрыть информацию обо мне" autofocus>×</button></div>
+<div class="info-layout"><div class="info-copy">
+<h2 id="info-heading" class="info-lead">Привет! Я&nbsp;Айса, UX/UI дизайнер</h2>
+<div class="info-body"><p>Сочетаю продуктовый подход с&nbsp;опытом в&nbsp;брендинге и&nbsp;моушн-дизайне. Учусь на&nbsp;4&nbsp;курсе НИУ&nbsp;ВШЭ. В&nbsp;работе использую Figma и&nbsp;Adobe Creative Cloud, а&nbsp;также инструменты для&nbsp;AI и&nbsp;3D. Уверенно ориентируюсь в&nbsp;принципах UX/UI: проектирую пользовательские сценарии, структурирую информацию, работаю с&nbsp;компонентами и&nbsp;дизайн-системами и&nbsp;могу выстраивать их&nbsp;с&nbsp;нуля. Понимаю особенности веб-разработки и&nbsp;стараюсь учитывать технические ограничения уже&nbsp;на&nbsp;этапе проектирования.</p>
+<p>Работаю как&nbsp;самостоятельно, так&nbsp;и&nbsp;в&nbsp;команде: умею погружаться в&nbsp;задачу, структурировать процесс, учитывать потребности пользователей и&nbsp;находить простые решения, не&nbsp;теряя внимания к&nbsp;деталям.</p></div>
+
+
+</div><div class="info-portrait-frame"><img class="info-portrait" src="assets/photos/info-portrait.jpg?v=2" alt="Айса — UX/UI дизайнер" width="3024" height="4032"></div></div></dialog>
+<dialog id="contact-dialog" aria-labelledby="contact-heading">
+<button id="contact-close" class="contact-close" aria-label="Закрыть контакты" autofocus>×</button>
+<h2 id="contact-heading">Свяжитесь со мной</h2>
+<div class="contact-primary-list">
+<div class="contact-email-row"><button type="button" class="contact-email" aria-label="Скопировать адрес почты">aysamaeva@gmail.com</button><span id="email-copy-status" role="status" aria-live="polite"></span></div>
+<div class="contact-email-row"><a class="contact-email" href="https://t.me/melmelodi" target="_blank" rel="noopener noreferrer" aria-label="Telegram @melmelodi">@melmelodi</a></div>
+</div>
+<div class="contact-icon-row" aria-label="Социальные сети и контакты"><a href="https://t.me/melmelodi" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.2 4.4 2.9 11.5c-.8.3-.8 1.4.1 1.7l4.6 1.5 1.8 5.4c.2.7 1.1.9 1.6.4l2.6-2.6 4.8 3.5c.7.5 1.7.1 1.9-.8l2.5-15c.2-.9-.7-1.6-1.6-1.2zM8.3 14.3l9.2-5.7c.2-.1.4.2.2.3l-7.6 6.9-.3 3.2-1.5-4.7z" fill="currentColor"/></svg></a><a href="mailto:aysamaeva@gmail.com" aria-label="Почта"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></a><a href="https://www.linkedin.com/in/aysa-badmaeva-aa6280363/?isSelfProfile=true" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2" fill="currentColor"/><path d="M6 10h3v8H6zm1.5-4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 10h3v1c1-2 6-2 6 3v4h-3v-4c0-2-3-2-3 0v4h-3z" fill="white"/></svg></a><a href="https://www.behance.net/57e75dcc" target="_blank" rel="noopener noreferrer" aria-label="Behance"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="2" fill="currentColor"/><path d="M5.2 7.5h4.1c1.6 0 2.6.8 2.6 2.1 0 .9-.5 1.5-1.2 1.8.9.3 1.5 1 1.5 2.1 0 1.6-1.2 2.5-3 2.5H5.2V7.5zm1.9 3.4h1.9c.7 0 1.1-.4 1.1-.9 0-.6-.4-.9-1.1-.9H7.1v1.8zm0 3.6h2.1c.8 0 1.3-.4 1.3-1.1 0-.7-.5-1.1-1.3-1.1H7.1v2.2zm7.2-5.9h4v1.2h-4V8.6zm2 1.4c2 0 3.2 1.3 3.2 3.3v.5h-4.6c.1.9.7 1.4 1.6 1.4.7 0 1.2-.3 1.5-.8l1.3.7c-.5.9-1.5 1.5-2.8 1.5-2 0-3.4-1.3-3.4-3.3 0-2 1.4-3.3 3.2-3.3zm-1.4 2.6h2.8c-.1-.8-.6-1.3-1.4-1.3-.8 0-1.3.5-1.4 1.3z" fill="white"/></svg></a></div></dialog>
+<script type="module" src="app.js?v=gallery-all-12"></script></body></html>

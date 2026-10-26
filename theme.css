@@ -1,0 +1,70 @@
+/* Theme surfaces preserve the original colors of artwork and category markers. */
+#theme-toggle{position:relative;display:flex;align-items:center;justify-content:center;padding:0;min-height:0;width:9px;height:30px;flex:none}
+#theme-toggle::before{content:"";position:absolute;inset:-7px -17px}
+#theme-toggle::after{display:none}
+:root[data-theme="dark"]{color-scheme:dark;background:#141414;color:#f2f2f2;--muted:#aaa;--rule:#3b3b3b}
+[data-theme="dark"] body,[data-theme="dark"] #experience,[data-theme="dark"] #index-view{background:#141414;color:#f2f2f2}
+[data-theme="dark"] .brand{color:#f2f2f2}
+[data-theme="dark"] .nav-dot{background:#f2f2f2;border-radius:50%;color:#f2f2f2}
+[data-theme="dark"] .segments{background:#292929}
+[data-theme="dark"] .segments::before{background:#454545;box-shadow:0 1px 4px #0005}
+[data-theme="dark"] #info,[data-theme="dark"] #contact-dialog,[data-theme="dark"] #hover-label,[data-theme="dark"] #project-detail #project,[data-theme="dark"] #loading,[data-theme="dark"] #error{background:#222;color:#f2f2f2;border-color:#414141}
+[data-theme="dark"] #info::backdrop,[data-theme="dark"] #contact-dialog::backdrop{background:#0007}
+[data-theme="dark"] #info #info-heading.info-lead,[data-theme="dark"] .contact-social,[data-theme="dark"] .contact-icon-row{color:#f2f2f2}
+[data-theme="dark"] #info .info-body p,[data-theme="dark"] #contact-dialog .contact-links p,[data-theme="dark"] #hover-label .hover-categories,[data-theme="dark"] #index-grid .project-summary,[data-theme="dark"] #index-grid .project-number,[data-theme="dark"] #email-copy-status{color:#aaa}
+[data-theme="dark"] #info-close,[data-theme="dark"] .contact-close{color:#bbb}
+[data-theme="dark"] #info button:hover{color:#fff}
+[data-theme="dark"] button:focus-visible,[data-theme="dark"] a:focus-visible{outline-color:#aaa}
+[data-theme="dark"] .contact-icon-row svg path[fill="white"]{fill:#222}
+@media(max-width:700px){#theme-toggle{width:8px}}
+
+[data-theme="dark"] #project-categories,[data-theme="dark"] #hover-label .hover-divider{border-color:#414141}
+
+.nav-dot{transition:border-radius 200ms ease,transform 180ms ease}
+@media(prefers-reduced-motion:reduce){.nav-dot{transition:none}}
+
+@media(hover:hover){#theme-toggle:not(.theme-activated):hover .nav-dot{transform:scale(.8)}}
+
+/* Hover metadata belongs beneath the artwork, without a card surface. */
+:root #hover-label.project-caption{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;color:inherit;text-align:center;pointer-events:none;line-height:1.35}
+#hover-label.project-caption .hover-title{font-size:15px;line-height:1.35;font-weight:400;letter-spacing:-.1px}
+:root #hover-label.project-caption .hover-categories{justify-content:center;gap:2px 10px;margin-top:4px;font-size:11px;line-height:1.45;font-weight:400;color:var(--muted)}
+#hover-label.project-caption .category-key{gap:4px}
+#hover-label.project-caption .category-key i,#project-categories .category-key i{display:inline-block;width:5px;height:5px;flex:0 0 5px;border:0;border-radius:50%;background:var(--category-color);opacity:1}
+#hover-label.project-caption .category-key,#project-categories .category-key{gap:6px}
+#hover-label.project-caption .category-key i::before{content:none}
+
+/* A quiet category readout shares the spatial view's lower margin. */
+#spatial-categories{position:absolute;right:4.306%;bottom:6.348%;z-index:6;display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:8px 18px;max-width:40%;font-size:14px;font-weight:400;line-height:1.5;color:var(--muted);pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity 180ms ease,transform 180ms ease}
+#spatial-categories.is-visible{opacity:1;transform:translateY(0)}
+#spatial-categories .category-key{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+#spatial-categories .category-key i{display:block;width:5px;height:5px;flex:none;border-radius:50%;background:var(--category-color)}
+.has-selection #spatial-categories{visibility:hidden}
+@media(max-width:700px){#spatial-categories{right:22px;bottom:16px;max-width:calc(100% - 44px);gap:5px 14px;font-size:14px}#spatial-view #intro{bottom:64px}}
+@media(prefers-reduced-motion:reduce){#spatial-categories{transition:none;transform:none}}
+
+/* A compact translucent label, with no border or gradient. */
+#hover-label.project-caption .hover-title{display:inline-block;max-width:100%;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+[data-theme="dark"] #hover-label.project-caption .hover-title{background:transparent}
+
+[data-theme="dark"] #spatial-categories{color:#fff}
+
+.nav-dot{position:relative}
+.theme-sun{position:absolute;display:block;width:266.6667%;height:266.6667%;left:50%;top:50%;transform:translate(-50%,-50%);opacity:0;transition:opacity 180ms ease}
+[data-theme="dark"] .theme-sun{opacity:1}
+@media(prefers-reduced-motion:reduce){.theme-sun{transition:none}}
+
+/* Give difference-blended text an explicit backdrop within the spatial view. */
+#spatial-view{background:#fff}
+[data-theme="dark"] #spatial-view{background:#141414}
+:root #hover-label.project-caption{color:#fff;mix-blend-mode:difference}
+
+@media(max-width:1024px),(hover:none) and (pointer:coarse){
+ #intro #spatial-categories{position:relative;left:auto;right:auto;top:auto;bottom:auto;max-width:100%;min-height:21px;margin-top:16px;justify-content:flex-start;text-align:left;gap:8px 16px}
+ #hover-label.project-caption .hover-title{font-size:13px}
+}
+
+@media(max-width:1024px),(hover:none) and (pointer:coarse){
+ #intro{bottom:max(16px,env(safe-area-inset-bottom))}
+ #intro #spatial-categories{margin-top:10px}
+}

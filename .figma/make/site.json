@@ -1,0 +1,12 @@
+{
+  "title": "Aysa's UI/UX Portfolio",
+  "description": "I'm a designer focused on digital products and user experiences. I combine UX research, interface design, branding, and motion to create digital solutions that are both functional and visually distinctive. I enjoy understanding user needs, structuring information, designing intuitive interactions, and building cohesive design systems that bring products to life.",
+  "language": "en",
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  },
+  "robots": {
+    "index": true
+  }
+}
