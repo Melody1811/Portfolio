@@ -5,8 +5,8 @@ import {projects,categories,sharedCategories} from './projects.js?v=descriptions
 import {initCaseStudies} from './case-view.js?v=15';
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');let selected=null,engine=null;
 
-const assets=await Promise.all(projects.map(p=>projectMedia(T,p)));
-await document.fonts.ready;
+// Gallery gifs (~60 MB) load in the background so Index and case pages open immediately.
+let assets=[];const assetsReady=Promise.all(projects.map(p=>projectMedia(T,p)));
 const indexVideos=[];
 let currentView='spatial';
 function syncMedia(){
@@ -40,7 +40,8 @@ function setView(view){
   $('#index-view').inert=!isIndex;$('#index-view').setAttribute('aria-hidden',String(!isIndex));
   $('#spatial-view').inert=isIndex;$('#spatial-view').setAttribute('aria-hidden',String(isIndex));
   $('#index-open').setAttribute('aria-pressed',String(isIndex));$('#spatial').setAttribute('aria-pressed',String(!isIndex));
-  if(isIndex){closeProject();dismissLoading();}
+  if(isIndex){closeProject();revealSite();dismissLoading();}
+  else if(!engine){const loading=$('#loading');loading.hidden=false;loading.classList.remove('is-finished');}
   engine?.clearConnections();syncMedia();engine?.refresh();
 }
 $('.segments').addEventListener('keydown',e=>{
@@ -70,6 +71,8 @@ $('#close-project').onclick=()=>{closeProject();$('#spatial').focus()};
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&selected!==null&&!$('#info').open&&!$('#contact-dialog').open){closeProject();$('#spatial').focus()}});
 
 import {createGlobe} from './globe.js?v=touch-caption-5';
+assets=await assetsReady;
+await document.fonts.ready;
 try {
   engine=createGlobe({T,root:$('#scene'),assets,projects,categories,reduced,onIntroComplete:dismissLoading,onSelect:select,onBlank:closeProject,hasSelection:()=>selected!==null,isPaused:()=>currentView!=='spatial'||$('#info').open||$('#contact-dialog').open||selected!==null,onZoomOut:()=>{if(selected!==null)closeProject()}});
   $('#info').addEventListener('close',()=>engine.refresh());
