@@ -1,6 +1,6 @@
-# Orbit Studio — spatial portfolio template
+# Aysa's portfolio
 
-A fictional portfolio with 16 spatial projects and six full sample case studies. The bundled photography is a fixed, locally hosted collection sourced from Unsplash under the Unsplash License; photographer and source links are listed in `PHOTOGRAPHY-CREDITS.md`. No personal portfolio assets, AI-generated imagery, commercial fonts, site credentials, or hosting identity are included.
+A portfolio with 16 spatial projects and six full sample case studies. 
 
 ## Run
 Serve this folder with a static web server (for example `python3 -m http.server 8766`). Open its localhost URL. No build step is required.
@@ -14,8 +14,4 @@ Serve this folder with a static web server (for example `python3 -m http.server 
 - `app.js`: email copied to clipboard and biography image swaps.
 - `theme.js`: theme persistence key.
 
-Contact destinations intentionally use example.com. Replace them before publishing your own portfolio.
-
 Desktop: hover, drag, immersive zoom, descriptions and random Next navigation. Mobile/tablet: rotate and tap previews without immersive zoom. Both: Index, case studies, info/contact overlays, clipboard email, dark mode, animated link underlines and opening sequence.
-
-The original portfolio remains separate. This template is prepared for further editing and has not been published to Figma Community.
