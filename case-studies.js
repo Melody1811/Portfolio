@@ -397,45 +397,89 @@ export const caseStudies = [
   },
   {
     "id": "quiet-cities",
-    "comingSoon": true,
     "title": "Дизайн зарплатных карт ВТБ",
+    "caseTitle": "Дизайн зарплатных карт ВТБ",
     "description": "Разработка концепции дизайна карт",
-    "overview": "Quiet Cities is a fictional design study exploring form, rhythm, and everyday experiences. This sample project demonstrates how a clear visual system can connect identity, interaction, and storytelling. Replace this copy with your own project context, process, and outcomes. The gallery below uses a curated set of reuse-licensed photographs; full source credits are included with this template.",
-    "client": "Fictional concept",
-    "year": "20XX",
-    "category": "Design exploration",
-    "credits": "Photography via Unsplash — see PHOTOGRAPHY-CREDITS.md",
+    "overview": "Разработка концепции дизайна карт",
+    "client": "ВТБ",
+    "year": "",
+    "category": "Card design",
+    "credits": "",
     "image": "assets/photos/cover-3.jpg",
+    "blocks": [
+      {
+        "type": "section",
+        "heading": "Концепция",
+        "paragraphs": [
+          "В метафоре карты ВТБ соединяются культурный и компьютерный код. В основе дизайна — переосмысленная гжель: классический синий орнамент превращается в пиксельный ковер из цифр, где каждая линия подчинена логике программирования, но сохраняет узнаваемость народного ремесла. Карта объединяет ключевые качества ВТБ: современные технологии, надежность и связь с культурным наследием."
+        ],
+        "image": {
+          "src": "assets/photos/vtb-cards/vtb-cards-0.webp",
+          "alt": "Синие и белые карты ВТБ с паттерном гжели из цифр",
+          "width": 1920,
+          "height": 1080,
+          "eager": true
+        }
+      },
+      {
+        "type": "text-group",
+        "items": [
+          {
+            "heading": "Инструмент",
+            "paragraphs": [
+              "В ходе работы был разработан генеративный инструмент, позволяющий преобразовывать изображения в цифровой ковер. На основе анализа исходной графики система формирует орнаментальный паттерн, который можно гибко настраивать: изменять цветовую палитру, интерлиньяж, толщину линий и другие визуальные параметры."
+            ]
+          }
+        ]
+      },
+      {
+        "type": "stack",
+        "images": [
+          {
+            "src": "assets/photos/vtb-cards/vtb-cards-1.webp",
+            "alt": "Три карты ВТБ с цифровым орнаментом на голубом фоне",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "src": "assets/photos/vtb-cards/vtb-cards-2.webp",
+            "alt": "Карты ВТБ, выходящие из смартфона",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "src": "assets/photos/vtb-cards/vtb-cards-3.webp",
+            "alt": "Две синие карты ВТБ на чёрном фоне",
+            "width": 1920,
+            "height": 1081
+          },
+          {
+            "src": "assets/photos/vtb-cards/vtb-cards-4.webp",
+            "alt": "Карта ВТБ в синем конверте с фактурой из цифр",
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "src": "assets/photos/vtb-cards/vtb-cards-5.webp",
+            "alt": "Синяя карта ВТБ с бинарным паттерном",
+            "width": 2000,
+            "height": 1239
+          },
+          {
+            "src": "assets/photos/vtb-cards/vtb-cards-6.webp",
+            "alt": "Четыре варианта карт ВТБ: синие и белые",
+            "width": 1918,
+            "height": 1080
+          }
+        ]
+      }
+    ],
     "images": [
       {
         "src": "assets/photos/cover-3.jpg",
         "alt": "Дизайн зарплатных карт ВТБ",
         "width": 1306,
         "height": 1047
-      },
-      {
-        "src": "assets/photos/quiet-cities-0.jpg",
-        "alt": "Quiet concrete facade beneath a pale blue sky",
-        "width": 1200,
-        "height": 1800
-      },
-      {
-        "src": "assets/photos/quiet-cities-1.jpg",
-        "alt": "White concrete steps forming a calm diagonal",
-        "width": 1200,
-        "height": 2126
-      },
-      {
-        "src": "assets/photos/quiet-cities-2.jpg",
-        "alt": "Circular table sheltered by a concrete structure",
-        "width": 1200,
-        "height": 1800
-      },
-      {
-        "src": "assets/photos/quiet-cities-3.jpg",
-        "alt": "Empty road disappearing into dense neutral fog",
-        "width": 1200,
-        "height": 800
       }
     ]
   },
