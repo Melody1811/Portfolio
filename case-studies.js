@@ -9,7 +9,7 @@ export const caseStudies = [
     "year": "",
     "category": "Mobile app and landing page",
     "credits": "Photography via Unsplash — see PHOTOGRAPHY-CREDITS.md",
-    "image": "assets/photos/cover-1.jpg",
+    "image": "assets/photos/cover-1.jpg?v=2",
     "blocks": [
       {
         "type": "image",
@@ -242,7 +242,7 @@ export const caseStudies = [
     ],
     "images": [
       {
-        "src": "assets/photos/cover-1.jpg",
+        "src": "assets/photos/cover-1.jpg?v=2",
         "alt": "Приложение SubMe",
         "width": 1306,
         "height": 1047
@@ -277,7 +277,7 @@ export const caseStudies = [
     "year": "",
     "category": "Internal web portal, responsive",
     "credits": "",
-    "image": "assets/photos/cover-2.jpg",
+    "image": "assets/photos/cover-2.jpg?v=2",
     "blocks": [
       {
         "type": "image",
@@ -388,7 +388,7 @@ export const caseStudies = [
     ],
     "images": [
       {
-        "src": "assets/photos/cover-2.jpg",
+        "src": "assets/photos/cover-2.jpg?v=2",
         "alt": "Вау-главная портала для сотрудников ВТБ",
         "width": 1306,
         "height": 1047
@@ -405,7 +405,7 @@ export const caseStudies = [
     "year": "",
     "category": "Card design",
     "credits": "",
-    "image": "assets/photos/cover-3.jpg",
+    "image": "assets/photos/cover-3.jpg?v=2",
     "blocks": [
       {
         "type": "section",
@@ -476,7 +476,7 @@ export const caseStudies = [
     ],
     "images": [
       {
-        "src": "assets/photos/cover-3.jpg",
+        "src": "assets/photos/cover-3.jpg?v=2",
         "alt": "Дизайн зарплатных карт ВТБ",
         "width": 1306,
         "height": 1047
@@ -493,7 +493,7 @@ export const caseStudies = [
     "year": "",
     "category": "Graphic design and merch",
     "credits": "",
-    "image": "assets/photos/cover-4.jpg",
+    "image": "assets/photos/cover-4.jpg?v=2",
     "blocks": [
       {
         "type": "image",
@@ -662,7 +662,7 @@ export const caseStudies = [
     ],
     "images": [
       {
-        "src": "assets/photos/cover-4.jpg",
+        "src": "assets/photos/cover-4.jpg?v=2",
         "alt": "Коллекция мерча для ММОМА",
         "width": 1307,
         "height": 1047
@@ -679,7 +679,7 @@ export const caseStudies = [
     "year": "",
     "category": "Branding, web and media",
     "credits": "",
-    "image": "assets/photos/cover-5.jpg",
+    "image": "assets/photos/cover-5.jpg?v=2",
     "blocks": [
       {
         "type": "image",
@@ -975,7 +975,7 @@ export const caseStudies = [
     ],
     "images": [
       {
-        "src": "assets/photos/cover-5.jpg",
+        "src": "assets/photos/cover-5.jpg?v=2",
         "alt": "Айдентика и создание медиа-сервиса NOOB",
         "width": 1307,
         "height": 1047
@@ -992,10 +992,10 @@ export const caseStudies = [
     "year": "20XX",
     "category": "Design exploration",
     "credits": "Photography via Unsplash — see PHOTOGRAPHY-CREDITS.md",
-    "image": "assets/photos/cover-6.jpg",
+    "image": "assets/photos/cover-6.jpg?v=2",
     "images": [
       {
-        "src": "assets/photos/cover-6.jpg",
+        "src": "assets/photos/cover-6.jpg?v=2",
         "alt": "Шрифт и айдентика органного фестиваля",
         "width": 1307,
         "height": 1047

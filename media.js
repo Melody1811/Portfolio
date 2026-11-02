@@ -21,6 +21,9 @@ const media={
   "Poster Study": {"image": "poster1.gif", "gif": true},
   "Binary Cards": {"image": "vtb-cards.gif", "gif": true}
 };
+// Animations wait until the globe is up so they don't compete with the posters for bandwidth.
+let releaseAnimations;const animationsAllowed=new Promise(r=>releaseAnimations=r);
+export function loadAnimations(){releaseAnimations()}
 function loadImage(src){
   return new Promise((resolve,reject)=>{
     const img=new Image();
@@ -39,11 +42,15 @@ export async function projectMedia(T,project){
   const entry=media[project.name];if(!entry)return sampleTexture(T,project);
   let image;
   try{
-    const paths=entry.candidates||[root+entry.image,entry.image,root+'noob/'+entry.image];
+    // A small first-frame poster lets the globe start right away; the animation streams in after.
+    const paths=entry.candidates||[root+'gallery/'+entry.image.replace(/\.gif$/,'-poster.jpg'),root+entry.image,entry.image,root+'noob/'+entry.image];
     image=await loadFirstAvailable(paths);
   }catch{
     return sampleTexture(T,project);
   }
+  const fromPoster=image.src.includes('/gallery/');
+  const animSrc=fromPoster?encodeURI(root+'gallery/'+entry.image.replace(/\.gif$/,'.webp'))+ver:image.src;
+  const animType=fromPoster?'image/webp':'image/gif';
   const canvas=document.createElement('canvas');canvas.width=720;canvas.height=460;
   const ctx=canvas.getContext('2d');
   const blurred=document.createElement('canvas');blurred.width=360;blurred.height=230;
@@ -67,13 +74,13 @@ export async function projectMedia(T,project){
   let video=null,last=-Infinity,lastBlur=-Infinity,gifState=null;
   if(entry.gif&&typeof ImageDecoder!=='undefined'){
     gifState={decoder:null,frameIndex:0,nextFrameTime:0,busy:false};
-    fetch(image.src).then(r=>r.arrayBuffer()).then(buf=>{
-      const dec=new ImageDecoder({data:buf,type:'image/gif'});
+    animationsAllowed.then(()=>ImageDecoder.isTypeSupported(animType)).then(ok=>{if(!ok)throw 0;return fetch(animSrc)}).then(r=>r.arrayBuffer()).then(buf=>{
+      const dec=new ImageDecoder({data:buf,type:animType});
       return dec.tracks.ready.then(()=>{gifState.decoder=dec});
     }).catch(()=>{});
   }
   if(entry.video){video=document.createElement('video');video.muted=true;video.loop=true;video.playsInline=true;video.preload='auto';video.src=root+entry.video;}
-  return {texture,blurredTexture,background:entry.background||'#fff',url:image.src,videoUrl:entry.video?root+entry.video:null,video,gif:Boolean(entry.gif),
+  return {texture,blurredTexture,background:entry.background||'#fff',url:animSrc,videoUrl:entry.video?root+entry.video:null,video,gif:Boolean(entry.gif),
     update(time,needsBlur){
       if(gifState?.decoder&&!gifState.busy&&time>=gifState.nextFrameTime){
         const track=gifState.decoder.tracks.selectedTrack;

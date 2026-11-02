@@ -1,8 +1,8 @@
 import * as T from './vendor/three.module.js';
-import {projectMedia} from './media.js?v=media-refresh-12';
+import {projectMedia,loadAnimations} from './media.js?v=media-refresh-14';
 const $=s=>document.querySelector(s);
 import {projects,categories,sharedCategories} from './projects.js?v=descriptions-10';
-import {initCaseStudies} from './case-view.js?v=15';
+import {initCaseStudies} from './case-view.js?v=16';
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');let selected=null,engine=null;
 
 // Gallery gifs (~60 MB) load in the background so Index and case pages open immediately.
@@ -41,7 +41,8 @@ function setView(view){
   $('#spatial-view').inert=isIndex;$('#spatial-view').setAttribute('aria-hidden',String(isIndex));
   $('#index-open').setAttribute('aria-pressed',String(isIndex));$('#spatial').setAttribute('aria-pressed',String(!isIndex));
   if(isIndex){closeProject();revealSite();dismissLoading();}
-  else if(!engine){const loading=$('#loading');loading.hidden=false;loading.classList.remove('is-finished');}
+  else if(engine)loadAnimations();
+  else{const loading=$('#loading');loading.hidden=false;loading.classList.remove('is-finished');}
   engine?.clearConnections();syncMedia();engine?.refresh();
 }
 $('.segments').addEventListener('keydown',e=>{
@@ -80,6 +81,7 @@ try {
 } catch(error) {
   console.error(error);$('#error').hidden=false;revealSite();dismissLoading();
 }
+if(currentView==='spatial')loadAnimations();
 
 function revealSite(){
   $('#experience').classList.replace('is-loading','is-ready');
@@ -101,7 +103,7 @@ $('#project-next').onclick=()=>{
 // Preload alternate portraits so hover changes never move or empty the photo frame.
 const infoPhotos=new Map();
 for(const [key,alt] of [['practice','Minimal white sculpture in soft light'],['learning','Figure casting a long shadow across pale sand'],['place','Fog-softened beach and horizon']]){
-  const image=new Image();image.className='info-photo-swap';image.src='assets/photos/info-'+key+'.jpg';image.alt=alt;image.setAttribute('aria-hidden','true');
+  const image=new Image();image.className='info-photo-swap';image.src='assets/photos/info-'+key+'.jpg?v=2';image.alt=alt;image.setAttribute('aria-hidden','true');
   $('.info-portrait-frame').append(image);infoPhotos.set(key,image);
 }
 function showInfoPhoto(key){
